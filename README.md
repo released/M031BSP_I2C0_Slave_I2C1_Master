@@ -44,10 +44,10 @@ update @ 2021/12/27
 
 2. below is press digit 1 , master send and slave receive data 
 
-![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/main/Master_send.jpg)
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/Master_send.jpg)
 
 3. below is press digit 2 , master receive , slave receive data and return data
 
-![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/main/Master_read_Slave_receive_send.jpg)
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/Master_read_Slave_receive_send.jpg.jpg)
 
 
