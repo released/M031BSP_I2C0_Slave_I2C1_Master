@@ -467,9 +467,9 @@ void I2Cx_Master_example (uint8_t res)
 			//calculate crc
 			u8CalData[0] = reg ;	//flag
 			u8CalData[1] = 0x00;	//type
-			u8CalData[2] = 10;
-			u8CalData[3] = 20;
-			u8CalData[4] = 30;			
+			u8CalData[2] = 0x10;
+			u8CalData[3] = 0x20;
+			u8CalData[4] = 0x30;			
 			crc = CRC_Get(u8CalData , 5);
 			
 			//fill data
@@ -522,74 +522,6 @@ void I2Cx_Master_example (uint8_t res)
 			printf("addr : 0x%2X, reg : 0x%2X , data (%2d) : \r\n",addr,reg,cnt++);
 			
 			break;
-
-		case 6 :
-			addr = 0x15;
-			reg = 0x04;
-			len = 4;
-
-			//calculate crc
-			u8CalData[0] = reg ;	//flag
-			u8CalData[1] = 0x00;	//read page
-			u8CalData[2] = 0x00;	//type			
-			crc = CRC_Get(u8CalData , 3);
-			
-			//fill data
-			u8TxData[0] = u8CalData[0];
-			u8TxData[1] = u8CalData[1];
-			u8TxData[2] = u8CalData[2];
-			u8TxData[3] = crc;	
-
-			#if defined (MASTER_I2C_USE_IRQ)
-			I2Cx_Write_Multi_ToSlave(addr,reg,u8TxData,len);
-			#elif defined (MASTER_I2C_USE_POLLING)
-			I2C_WriteMultiBytes(MASTER_I2C , addr ,u8TxData , len);
-
-//			printf("I2Cx_Write finish\r\n");
-//			printf("addr : 0x%2X, reg : 0x%2X , data (%2d) : \r\n",addr,reg,cnt++);
-			
-			I2C_ReadMultiBytes(MASTER_I2C, addr, u8RxData, 9);//16
-	
-			printf("\r\nI2Cx_Read  finish\r\n");
-			
-			for(i = 0; i < 16 ; i++)
-			{
-				printf("0x%2X ,", u8RxData[i]);
-		   	 	if ((i+1)%8 ==0)
-		        {
-		            printf("\r\n");
-		        }		
-			}
-
-			printf("\r\n\r\n\r\n");			
-			
-			#endif		
-			
-			break;
-
-		case 7 :
-			addr = 0x15;
-			#if defined (MASTER_I2C_USE_POLLING)
-			
-			I2C_ReadMultiBytes(MASTER_I2C, addr, u8RxData, 16);
-
-			printf("\r\nI2Cx_Read  finish\r\n");
-			
-			for(i = 0; i < 16 ; i++)
-			{
-				printf("0x%2X ,", u8RxData[i]);
-		   	 	if ((i+1)%8 ==0)
-		        {
-		            printf("\r\n");
-		        }		
-			}
-
-			printf("\r\n\r\n\r\n");			
-			
-			#endif			
-			
-			break;
-
 			
 		case 9 :
 			addr = 0x15;
