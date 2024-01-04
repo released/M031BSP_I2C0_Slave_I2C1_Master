@@ -1,7 +1,19 @@
-
+/*_____ I N C L U D E S ____________________________________________________*/
 #include <stdio.h>
 #include "NuMicro.h"
 
+/*_____ D E C L A R A T I O N S ____________________________________________*/
+/*_____ D E F I N I T I O N S ______________________________________________*/
+#define MASTER_I2C_USE_IRQ
+//#define MASTER_I2C_USE_POLLING
+
+// #define DEBUG_LOG_MASTER_LV1
+// #define DEBUG_LOG_SLAVE_LV1
+// #define DEBUG_LOG_SLAVE_LV2
+// #define DEBUG_LOG_SLAVE_STATEMACHINE_LV1
+
+// #define MASTER_I2C_TIMEOUT_ENABLE
+#define SLAVE_I2C_TIMEOUT_ENABLE
 
 //#define MASTER_I2C						  		(I2C0)
 //#define MASTER_I2C_IRQn						  	(I2C0_IRQn)
@@ -24,11 +36,6 @@
 #define MASTER_RECEIVE_DATA_NACK          		(0x58)
 #define BUS_ERROR                         		(0x00)
 
-//#define DEBUG_LOG_MASTER_LV1
-
-#define MASTER_I2C_USE_IRQ
-//#define MASTER_I2C_USE_POLLING
-
 #define SLAVE_I2C						  		(I2C0)
 #define SLAVE_I2C_IRQn						  	(I2C0_IRQn)
 #define I2Cx_Slave_IRQHandler					(I2C0_IRQHandler)
@@ -48,7 +55,13 @@
 #define GC_MODE_DATA_NACK                  		(0x98)
 #define ADDRESS_TRANSMIT_ARBITRATION_LOST    	(0xB0)
 
-//#define DEBUG_LOG_SLAVE_LV1
-#define DEBUG_LOG_SLAVE_LV2
+/*_____ M A C R O S ________________________________________________________*/
+/*_____ F U N C T I O N S __________________________________________________*/
+void I2Cx_Master_Init(void);
+void I2Cx_Master_example (uint8_t res);
+void I2Cx_Master_GPIO_Recover(void);
+
+void I2Cx_Slave_Init(void);
+void I2Cx_Slave_example (void);
 
 

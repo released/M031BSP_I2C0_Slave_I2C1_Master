@@ -1,6 +1,27 @@
 # M031BSP_I2C0_Slave_I2C1_Master
  M031BSP_I2C0_Slave_I2C1_Master
 
+udpate @ 2024/01/04
+
+1. modify master and slave flow , add LA catpure 
+
+2. press digit 9 , display master send and slave receive data log 
+
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/digit_9.jpg)
+
+3. below is press digit 9 , master send LA capture 
+
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/LA_digit_9_master_send.jpg)
+
+4. below is press digit 9 , slave receive and send LA capture
+
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/LA_digit_9_slave_receive_send.jpg)
+
+5. below is press digit 6 , to simluate master sned invalid register byte to slave
+
+![image](https://github.com/released/M031BSP_I2C0_Slave_I2C1_Master/blob/main/LA_digit_6_master_send.jpg)
+
+
 update @ 2021/12/27
 
 1. initial I2C master (I2C1) and slave (I2C0) 
